@@ -1,6 +1,6 @@
 #!/bin/bash
 
-##Mark Halliday Mini workgroups ltd - v002.02 - 01 July 2025
+##Mark Halliday Mini workgroups ltd - v002.03 - 01 July 2025
 ##Added password checking functionality
 ##Based on:
 ##Ryan Schilder - v002 - June 12 2023
@@ -59,15 +59,15 @@ case $certNameVar in
    sudo keytool -importkeystore -srcstorepass $TAKPASS -deststorepass $TAKPASS -destkeystore $javaKeystoreVar.jks -srckeystore $javaKeystoreVar.p12 -srcstoretype pkcs12
 
    ## remove the old jks and p12 files
-   sudo rm /opt/tak/certs/files/$javaKeystoreVar.jks
-   sudo rm /opt/tak/certs/files/$javaKeystoreVar.p12
+   sudo rm $TAK_LOCATION/certs/files/$javaKeystoreVar.jks
+   sudo rm $TAK_LOCATION/certs/files/$javaKeystoreVar.p12
 
    ## Move the certificate to the TAK certificate directory
-   sudo mv $javaKeystoreVar.jks /opt/tak/certs/files/
-   sudo mv $javaKeystoreVar.p12 /opt/tak/certs/files/
+   sudo mv $javaKeystoreVar.jks $TAK_LOCATION/certs/files/
+   sudo mv $javaKeystoreVar.p12 $TAK_LOCATION/certs/files/
 
    ## Restore our permissions to default
-   sudo chown -R tak: /opt/tak/certs/files/
+   sudo chown -R tak: $TAK_LOCATION/certs/files/
 
    ## Restart takserver
    sudo systemctl restart takserver
