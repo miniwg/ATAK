@@ -4,7 +4,7 @@ ATAK in the UK
 This repository contains miscellaneous files related to using ATAK:
 
 1. WallpaperATAK.jpg
-This is a wallpapaer based on the ATAK splashscreen and includes AJ Johansson's "TAK is the Way"slogan.
+This is a wallpaper based on the ATAK splashscreen and includes AJ Johansson's "TAK is the Way"slogan.
 
 2. takserver_renewLE23.sh
 This is a bash script for use on a TAK server which employs Let's Encrypt public server certificates. It is based on the version 002 script published by the TAK syndicate, with the following updates
