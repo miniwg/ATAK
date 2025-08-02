@@ -1,7 +1,7 @@
 #!/bin/bash
 
-##Mark Halliday Mini workgroups ltd - v002.4 - 02 August 2025
-##Added port 80 checking functionality
+##Mark Halliday Mini workgroups ltd - v002.4-1 - 02 August 2025
+##Changed to read passwords from CoreConfig for Ubuntu/Rocky compatibility
 ##Based on:
 ##Ryan Schilder - v002 - June 12 2023
 ##This script will create LetsEncrypt certificates for the takserver
@@ -24,9 +24,9 @@ javaKeystoreVar="takserver-le"
 ## Edit this line if you have not installed TAK in the default /opt/tak directory
 TAK_LOCATION=/opt/tak
 
-##TAK metadata file location
-##Set path for cert-metadata.sh file
-TAK_META=$TAK_LOCATION/certs/cert-metadata.sh
+##TAK config file location
+##Set path for CoreConfig.xml file
+TAK_CC=$TAK_LOCATION/CoreConfig.xml
 
 ##DO NOT EDIT BELOW THIS LINE
 ## SCRIPT
@@ -47,15 +47,9 @@ case $certNameVar in
        ## Conduct a certificate renewal dry run to verify permissions and path
        sudo certbot renew --force-renewal
 
-       ## Get the TAK certificate passwords from certs-metadata.sh
-       TAKCAPASS=$(awk -F'=' '$1 == "CAPASS" {print $2}' $TAK_META)
-       TAKPASS=$(awk -F'=' '$1 == "PASS" {print $2}' $TAK_META)
-   
-       ## Check TAKPASS is not set to $CAPASS default - strip 1 character from left to avoid bash misreading $CAPASS
-       if [ ${TAKPASS:1} == "CAPASS" ] ; then
-          TAKPASS=$TAKCAPASS
-       fi
-   
+       ## Get the TAK truststore password from CoreConfig.xml
+       TAKPASS=$(xmllint --xpath "string(//*[local-name()='tls']/@truststorePass)" $TAK_CC 2>/dev/null | xargs || true)
+
        ## Create our PKCS12 certificate from our signed certificate and private key
        sudo openssl pkcs12 -export -in /etc/letsencrypt/live/$certNameVar/fullchain.pem -inkey /etc/letsencrypt/live/$certNameVar/privkey.pem -out $javaKeystoreVar.p12 -name $certNameVar -password pass:$TAKPASS
 
