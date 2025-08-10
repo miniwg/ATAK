@@ -1,6 +1,6 @@
 # This service unit checks and renews the TAK LE certificate  
 # By Mark Halliday Mini workgroups ltd
-#
+# (c) 2025
 
 [Unit]
 Description=Checks and renews takserver LE certificate
