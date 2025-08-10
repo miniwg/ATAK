@@ -1,0 +1,16 @@
+# This timer unit manages TAK LE certificate validity check and renewal
+# By Mark Halliday Mini workgroups ltd
+# (c) 2025
+#
+
+[Unit]
+Description=Checks the takserver LE certificate validity
+Requires=taklecr.service
+
+[Timer]
+Unit=taklecr.service
+OnCalendar=*-*-* 04:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
