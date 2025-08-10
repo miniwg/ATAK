@@ -14,7 +14,7 @@ This is a bash script for use on a TAK server which employs Let's Encrypt public
 - logs to the syslog rather than std out.
 
 ## 3. taklecr
-This is an extension and replacement for takserver_renewLE.  It checks the validity of the LE certificate by querying it on the public port (by default 8446). If the the certificate life is lesss that the renewal threshold it conducts a certificate renewal.  The script can be triggered by either creating a cronjob or using the systemd service and timer files included in this repo.
+This is an extension and replacement for takserver_renewLE.  It checks the validity of the LE certificate by querying it on the public port (by default 8446). If the the certificate life is less that the renewal threshold it conducts a certificate renewal.  The script can be triggered by either creating a cronjob or using the systemd service and timer files included in this repo.
 To install: copy the file to the /usr/local/bin directory Then:
 - chown root:takadmin /usr/local/bin/taklecr
 - chmod 710 /usr/local/bin/taklecr
