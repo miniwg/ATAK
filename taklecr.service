@@ -1,0 +1,14 @@
+# This service unit checks and renews the TAK LE certificate  
+# By Mark Halliday Mini workgroups ltd
+#
+
+[Unit]
+Description=Checks and renews takserver LE certificate
+Wants=taklecr.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/taklecr
+
+[Install]
+WantedBy=multi-user.target
