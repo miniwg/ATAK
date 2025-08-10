@@ -16,24 +16,27 @@ This is a bash script for use on a TAK server which employs Let's Encrypt public
 ## 3. taklecr
 This is an extension and replacement for takserver_renewLE.  It checks the validity of the LE certificate by querying it on the public port (by default 8446). If the the certificate life is less that the renewal threshold it conducts a certificate renewal.  The script can be triggered by either creating a cronjob or using the systemd service and timer files included in this repo.
 To install: copy the file to the /usr/local/bin directory Then:
-- chown root:takadmin /usr/local/bin/taklecr
-- chmod 710 /usr/local/bin/taklecr
+```
+chown root:takadmin /usr/local/bin/taklecr
+chmod 710 /usr/local/bin/taklecr
+```
 
 ## 4. taklecr.service
 This is the systemd service file to be used in conjuction with the taklecr script and taklecr timer. 
 To install: copy the file to /etc/systemd/system/ directory Then:
-- chown root: /etc/systemd/system/taklecr.service
-- chmod 644 /etc/systemd/system/taklecr.service
-- systemctl daemon-reload
+```
+chown root: /etc/systemd/system/taklecr.service
+chmod 644 /etc/systemd/system/taklecr.service
+systemctl daemon-reload
+```
 
 ## 5. taklecr.timer
 This is the systemd timer file to run the taklecr command every day at 04:00. It is used in conjuction with the taklecr script and taklecr service files.
 To install: copy the file to /etc/systemd/system/ directory Then:
-- chown root: /etc/systemd/system/taklecr.timer
-- chmod 644 /etc/systemd/system/taklecr.timer
-- systemctl daemon-reload
-- systemctl start taklecr.timer
-- systemctl enable taklecr.timer
-
-
-
+```
+chown root: /etc/systemd/system/taklecr.timer
+chmod 644 /etc/systemd/system/taklecr.timer
+systemctl daemon-reload
+systemctl start taklecr.timer
+systemctl enable taklecr.timer
+```
