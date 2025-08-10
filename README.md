@@ -21,14 +21,14 @@ To install: copy the file to the /usr/local/bin directory Then:
 
 4. taklecr.service
 This is the systemd service file to be used in conjuction with the taklecr script and taklecr timer. 
-To install: copy the file to /etc/systemd/systm/ directory Then:
+To install: copy the file to /etc/systemd/system/ directory Then:
 - chown root: /etc/systemd/system/taklecr.service
 - chmod 644 /etc/systemd/system/taklecr.service
 - systemctl daemon-reload
 
 5. taklecr.timer
 This is the systemd timer file to run the taklecr command every day at 04:00. It is used in conjuction with the taklecr script and taklecr service files.
-To install: copy the file to /etc/systemd/systm/ directory Then:
+To install: copy the file to /etc/systemd/system/ directory Then:
 - chown root: /etc/systemd/system/taklecr.timer
 - chmod 644 /etc/systemd/system/taklecr.timer
 - systemctl daemon-reload
