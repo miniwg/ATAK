@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-##Mark Halliday Mini workgroups ltd - v001.0-1 - 10 August 2025
+##Mark Halliday Mini workgroups ltd - v002.0-0 - 10 August 2025
 ##taklecr
 ##TAK Let's Encrypt - check and renew
 ##A combined script to manage a takserver's public Let's Encypt certificate
