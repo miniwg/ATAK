@@ -60,7 +60,7 @@ case $certNameVar in
    TAK_PRESENT=$(date +%s)
 
    ## Calculate the remaining days to certificate expiration
-   TAK_LE_REMAINING=$(( ($TAK_EXPIRE_DATE - $TAK_PRESENT) / 86400 ))
+   TAK_LE_REMAINING=$(( ($TAK_EXPIRE_EPOCH - $TAK_PRESENT) / 86400 ))
 
    ## Run LE certificate renewal if it is within renewal window
    if [ $TAK_LE_REMAINING -lt $TAK_RENEW_DAYS ]
