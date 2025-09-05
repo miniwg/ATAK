@@ -29,6 +29,7 @@ chown root: /etc/systemd/system/taklecr.service
 chmod 644 /etc/systemd/system/taklecr.service
 systemctl daemon-reload
 ```
+Once you have instaled the script edit the script and change the configuration values in the configuration section to reflect the setup of your TAK server.  If you have a default set up this will only require changing the line certNameVar="PUT_DOMAIN_HERE" to you domain name - eg: certNameVar="tak.example.com".
 
 ## 5. taklecr.timer
 This is the systemd timer file to run the taklecr command every day at 04:00. It is used in conjuction with the taklecr script and taklecr service files.  
