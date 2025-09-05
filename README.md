@@ -20,7 +20,14 @@ To install: copy the file to the /usr/local/bin directory Then:
 chown root:takadmin /usr/local/bin/taklecr
 chmod 710 /usr/local/bin/taklecr
 ```
-Once you have instaled the script edit the script and change the configuration values in the configuration section to reflect the setup of your TAK server.  If you have a default set up this will only require changing the line certNameVar="PUT_DOMAIN_HERE" to you domain name - eg: certNameVar="tak.example.com".
+Once you have instaled the script, edit the script to change the values in the configuration section to reflect the setup of your TAK server.  If you have a default set up this will only require changing the line:
+```
+certNameVar="PUT_DOMAIN_HERE"
+```
+to your domain name - eg: 
+```
+certNameVar="tak.example.com"
+```
 
 ## 4. taklecr.service
 This is the systemd service file to be used in conjuction with the taklecr script and taklecr timer.  
