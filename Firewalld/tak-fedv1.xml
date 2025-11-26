@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>TAK-Fedv1</short>
+  <description>TAK server Federation version 1
+  Created by Mini workgroups ltd
+  </description>
+  <port protocol="tcp" port="9000"/>
+</service>
