@@ -15,7 +15,7 @@ This is a bash script for use on a TAK server which employs Let's Encrypt public
 
 ## 3. taklecr
 This is an extension and replacement for takserver_renewLE.  It checks the validity of the LE certificate by querying it on the public port (by default 8446). If the the certificate life is less that the renewal threshold it conducts a certificate renewal.  The script can be triggered by either creating a cronjob or using the systemd service and timer files included in this repo.  
-To install: copy the file to the /usr/local/bin directory Then:
+To install: copy the file to the `/usr/local/bin` directory Then:
 ```
 chown root:takadmin /usr/local/bin/taklecr
 chmod 710 /usr/local/bin/taklecr
@@ -31,7 +31,7 @@ certNameVar="tak.example.com"
 
 ## 4. taklecr.service
 This is the systemd service file to be used in conjuction with the taklecr script and taklecr timer.  
-To install: copy the file to /etc/systemd/system/ directory Then:
+To install: copy the file to `/etc/systemd/system/` directory Then:
 ```
 chown root: /etc/systemd/system/taklecr.service
 chmod 644 /etc/systemd/system/taklecr.service
@@ -40,16 +40,16 @@ systemctl daemon-reload
 
 ## 5. taklecr.timer
 This is the systemd timer file to run the taklecr command every day at 04:00. It is used in conjuction with the taklecr script and taklecr service files.  
-To install: copy the file to /etc/systemd/system/ directory Then:
+To install: copy the file to `/etc/systemd/system/` directory Then:
 ```
 chown root: /etc/systemd/system/taklecr.timer
 chmod 644 /etc/systemd/system/taklecr.timer
 systemctl enable taklecr.timer
 ```
 ## 6. Firewalld
-This directory contains firewalld service files for the tak server services.  For a basic takserver the tak-base.xml and tak-admin.xml service files are required.
-To install: As root copy the relevant service file to /etc/firewalld/services.
-After you have copied the file into /etc/firewalld/services it takes about 5 seconds till the new service will be visible in firewalld.
+This directory contains firewalld service files for the tak server services.  For a basic takserver the tak-base.xml and tak-admin.xml service files are required.  
+To install: As root copy the relevant service file to `/etc/firewalld/services` directory.  
+After you have copied the file into /etc/firewalld/services it takes about 5 seconds till the new service will be visible in firewalld.  
 Typically, the default zone is set to ‘public’, but you can check your active zone by typing:
 ```
 firewall-cmd --get-active-zones
