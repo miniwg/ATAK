@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>TAK-FedHub</short>
+  <description>TAK server Federation hub ports
+  Created by Mini workgroups ltd
+  </description>
+  <port protocol="tcp" port="9100"/>
+  <port protocol="tcp" port="9101"/>
+  <port protocol="tcp" port="9102"/>
+</service>
