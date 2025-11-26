@@ -1,7 +1,7 @@
 # ATAK
-ATAK in the UK
+TAK in the UK
 
-This repository contains miscellaneous files related to using ATAK:
+This repository contains miscellaneous files related to using TAK:
 
 ## 1. WallpaperATAK.jpg
 This is a wallpaper based on the ATAK splashscreen and includes AJ Johansson's "TAK is the Way"slogan.
@@ -46,7 +46,7 @@ chown root: /etc/systemd/system/taklecr.timer
 chmod 644 /etc/systemd/system/taklecr.timer
 systemctl enable taklecr.timer
 ```
-##6. Firewalld
+## 6. Firewalld
 This directory contains firewalld service files for the tak server services.  For a basic takserver the tak-base.xml and tak-admin.xml service files are required.
 To install: As root copy the relevant service file to /etc/firewalld/services.
 After you have copied the file into /etc/firewalld/services it takes about 5 seconds till the new service will be visible in firewalld.
