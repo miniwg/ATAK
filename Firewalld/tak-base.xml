@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>TAK-Base</short>
+  <description>TAK server basic web and ssl ports</description>
+  <port protocol="tcp" port="8089"/>
+  <port protocol="tcp" port="8446"/>
+</service>
