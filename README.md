@@ -43,8 +43,10 @@ This is the systemd timer file to run the taklecr command every day at 04:00. It
 To install: copy the file to /etc/systemd/system/ directory Then:
 ```
 chown root: /etc/systemd/system/taklecr.timer
-chmod 644 /etc/systemd/system/taklecr.timer
-systemctl daemon-reload
-systemctl start taklecr.timer
+
+##6. Firewalld
+This directory contains firewalld service files for the tak server services.  For a basic takserver the tak-base.xml and tak-admin.xml service files are required.
+To install: copy the relevant service file to /etc/firewalld/services Then:
+
 systemctl enable taklecr.timer
 ```
