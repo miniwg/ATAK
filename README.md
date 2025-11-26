@@ -43,10 +43,33 @@ This is the systemd timer file to run the taklecr command every day at 04:00. It
 To install: copy the file to /etc/systemd/system/ directory Then:
 ```
 chown root: /etc/systemd/system/taklecr.timer
-
-##6. Firewalld
-This directory contains firewalld service files for the tak server services.  For a basic takserver the tak-base.xml and tak-admin.xml service files are required.
-To install: copy the relevant service file to /etc/firewalld/services Then:
-
+chmod 644 /etc/systemd/system/taklecr.timer
 systemctl enable taklecr.timer
 ```
+##6. Firewalld
+This directory contains firewalld service files for the tak server services.  For a basic takserver the tak-base.xml and tak-admin.xml service files are required.
+To install: As root copy the relevant service file to /etc/firewalld/services.
+After you have copied the file into /etc/firewalld/services it takes about 5 seconds till the new service will be visible in firewalld.
+Typically, the default zone is set to ‘public’, but you can check your active zone by typing:
+```
+firewall-cmd --get-active-zones
+```
+Then, add the chosen TAK service to your active zone with the following command:
+```
+sudo firewall-cmd --zone=public --add-service=tak-base
+sudo firewall-cmd --zone=public --add-service=tak-admin
+```
+By default, the changes you make are temporary and will be lost after a reboot. To make the changes permanent, add the --permanent flag to the commands:
+```
+sudo firewall-cmd --permanent --zone=public --add-service=tak-base
+sudo firewall-cmd --permanent --zone=public --add-service=tak-admin
+```
+After adding the services, you need to reload FirewallD to apply the changes:
+```
+sudo firewall-cmd --reload
+```
+To confirm that the services have been added correctly. To check the services enabled on your zone, use:
+```
+sudo firewall-cmd --zone=public --list-services
+```
+You should see `tak-base` and `tak-admin` in the list of allowed services.
