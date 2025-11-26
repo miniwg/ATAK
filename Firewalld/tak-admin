@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<service>
-  <short>TAK-Admin</short>
-  <description>TAK server Marti admin interface port
-  Created by Mini workgroups ltd
-  </description>
-  <port protocol="tcp" port="8443"/>
-</service>
